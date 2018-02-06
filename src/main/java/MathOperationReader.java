@@ -9,9 +9,9 @@ public class MathOperationReader {
         return Operators.getMathOperationPriority(stack.peekLatestSign()) <= Operators.getMathOperationPriority(presentElement);
     }
 
-    private boolean isMathematicalOperator(String check){
+    private boolean isMathematicalOperator(String checkedElement){
 
-        return check.equals(Operators.PLUS.getOperator()) || check.equals(Operators.MINUS.getOperator()) || check.equals(Operators.MULTIPLICATION.getOperator()) || check.equals(Operators.DIVISION.getOperator());
+        return checkedElement.equals(Operators.PLUS.getOperator()) || checkedElement.equals(Operators.MINUS.getOperator()) || checkedElement.equals(Operators.MULTIPLICATION.getOperator()) || checkedElement.equals(Operators.DIVISION.getOperator());
     }
 
     public String reader(String mathematicalEquation_inNormalFormat) {
