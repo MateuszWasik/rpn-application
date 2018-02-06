@@ -19,9 +19,8 @@ public enum Operators {
     
     public static int getMathOperationPriority(String element){
         
-        if(element.equals(PLUS) || element.equals(MINUS)) return 1;
-        if(element.equals(MULTIPLICATION) || element.equals(DIVISION)) return 2;
-        return 0;
+        if(element.equals(PLUS.getOperator()) || element.equals(MINUS.getOperator())) return 1;
+        if(element.equals(MULTIPLICATION.getOperator()) || element.equals(DIVISION.getOperator())) return 2;
+        else {return 0;}
     }
-    
 }

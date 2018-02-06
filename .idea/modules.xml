@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/rpn-application.iml" filepath="$PROJECT_DIR$/rpn-application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rpn-application_main.iml" filepath="$PROJECT_DIR$/.idea/modules/rpn-application_main.iml" group="rpn-application" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rpn-application_test.iml" filepath="$PROJECT_DIR$/.idea/modules/rpn-application_test.iml" group="rpn-application" />
     </modules>
   </component>
 </project>

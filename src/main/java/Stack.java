@@ -1,10 +1,10 @@
 public class Stack {
 
-    String[] stackTab;
+    private String[] stackTab;
 
-    int firstEmptyIndex;
+    private int firstEmptyIndex;
 
-    public Stack(int stackSize) {
+    Stack(int stackSize) {
         stackTab = new String[stackSize];
         firstEmptyIndex = 0;
     }
@@ -27,18 +27,15 @@ public class Stack {
 
     public String takeFromStack() {
         if (firstEmptyIndex <= 0) {
-            throw new IndexOutOfBoundsException(
-                    "Stack is empty");
+            throw new IndexOutOfBoundsException("Stack is empty");
         }
-        String temporary = stackTab[firstEmptyIndex - 1];
+        String lastStackElement = stackTab[firstEmptyIndex - 1];
         firstEmptyIndex--;
-        return temporary;
+        return lastStackElement;
     }
     
     public boolean isEmpty(){
-        if(firstEmptyIndex <= 0) return true;
-        else return false;
-        
+        return firstEmptyIndex <= 0;
     }
 
 }
