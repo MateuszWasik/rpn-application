@@ -1,16 +1,18 @@
-public enum Operators {
+public enum OperatorsEnum {
     
-    PLUS("+"),
-    MINUS("-"),
-    MULTIPLICATION("*"),
-    DIVISION("/"),
-    OPEN_BRACKET("("),
-    CLOSING_BRACKET(")");
+    PLUS("+", 1),
+    MINUS("-", 1),
+    MULTIPLICATION("*", 2),
+    DIVISION("/", 2),
+    OPEN_BRACKET("(", 0),
+    CLOSING_BRACKET(")", 0);
     
     private String operator;
-    
-    Operators(String operator){
+    private int priority;
+
+    OperatorsEnum(String operator, int priority){
         this.operator = operator;
+        this.priority = priority;
     }
     
     public String getOperator(){

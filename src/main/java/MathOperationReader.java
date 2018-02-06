@@ -4,20 +4,19 @@ import java.util.StringTokenizer;
 public class MathOperationReader {
 
 
-    private boolean isMoreImportant(String presentElement, Stack stack){
+    private boolean isMoreImportant(String presentElement, Stack stack) {
 
-        return Operators.getMathOperationPriority(stack.peekLatestSign()) <= Operators.getMathOperationPriority(presentElement);
+        return OperatorsEnum.getMathOperationPriority(stack.peekLatestSign()) <= OperatorsEnum.getMathOperationPriority(presentElement);
     }
 
-    private boolean isMathematicalOperator(String checkedElement){
+    private boolean isMathematicalOperator(String checkedElement) {
 
-        return checkedElement.equals(Operators.PLUS.getOperator()) || checkedElement.equals(Operators.MINUS.getOperator()) || checkedElement.equals(Operators.MULTIPLICATION.getOperator()) || checkedElement.equals(Operators.DIVISION.getOperator());
+        return checkedElement.equals(OperatorsEnum.PLUS.getOperator()) || checkedElement.equals(OperatorsEnum.MINUS.getOperator()) || checkedElement.equals(OperatorsEnum.MULTIPLICATION.getOperator()) || checkedElement.equals(OperatorsEnum.DIVISION.getOperator());
     }
 
     public String reader(String mathematicalEquation_inNormalFormat) {
 
-        StringTokenizer cutMathematicalEquation = new StringTokenizer(mathematicalEquation_inNormalFormat, "+/()-*",
-                true);
+        StringTokenizer cutMathematicalEquation = new StringTokenizer(mathematicalEquation_inNormalFormat, "+/()-*", true);
 
         StringBuilder mathematicalEquation_inPostfixFormat = new StringBuilder();
 
@@ -35,9 +34,9 @@ public class MathOperationReader {
                     mathematicalEquation_inPostfixFormat.append(" ");
                     stack.pushOnStack(element);
                 }
-            } else if (element.equals(Operators.OPEN_BRACKET.getOperator())) {
+            } else if (element.equals(OperatorsEnum.OPEN_BRACKET.getOperator())) {
                 stack.pushOnStack(element);
-            } else if (element.equals(Operators.CLOSING_BRACKET.getOperator())) {
+            } else if (element.equals(OperatorsEnum.CLOSING_BRACKET.getOperator())) {
 
                 while (!stack.peekLatestSign().equals("(")) {
                     mathematicalEquation_inPostfixFormat.append(stack.peekLatestSign());

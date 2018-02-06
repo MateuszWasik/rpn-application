@@ -12,8 +12,8 @@
       <entry name="!?*.clj" />
     </wildcardResourcePatterns>
     <bytecodeTargetLevel>
-      <module name="rpn-application_main" target="1.5" />
-      <module name="rpn-application_test" target="1.5" />
+      <module name="rpn-application_main" target="1.8" />
+      <module name="rpn-application_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
