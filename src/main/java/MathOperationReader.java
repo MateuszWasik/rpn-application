@@ -9,6 +9,11 @@ public class MathOperationReader {
         return Operators.getMathOperationPriority(stack.peekLatestSign()) <= Operators.getMathOperationPriority(presentElement);
     }
 
+    private boolean isMathematicalOperator(String check){
+
+        return check.equals(Operators.PLUS.getOperator()) || check.equals(Operators.MINUS.getOperator()) || check.equals(Operators.MULTIPLICATION.getOperator()) || check.equals(Operators.DIVISION.getOperator());
+    }
+
     public String reader(String mathematicalEquation_inNormalFormat) {
 
         StringTokenizer cutMathematicalEquation = new StringTokenizer(mathematicalEquation_inNormalFormat, "+/()-*",
@@ -22,7 +27,7 @@ public class MathOperationReader {
 
             String element = cutMathematicalEquation.nextToken();
 
-            if (element.equals(Operators.PLUS.getOperator()) || element.equals(Operators.MINUS.getOperator()) || element.equals(Operators.MULTIPLICATION.getOperator()) || element.equals(Operators.DIVISION.getOperator())) {
+            if (isMathematicalOperator(element)) {
                 if (isMoreImportant(element, stack)) {
                     stack.pushOnStack(element);
                 } else {
