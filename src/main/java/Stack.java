@@ -9,6 +9,14 @@ public class Stack {
         firstEmptyIndex = 0;
     }
 
+    public int getFirstEmptyIndex() {
+        return firstEmptyIndex;
+    }
+
+    public void setFirstEmptyIndex(int firstEmptyIndex) {
+        this.firstEmptyIndex = firstEmptyIndex;
+    }
+
     public void pushOnStack(String character) {
         if (firstEmptyIndex < stackTab.length) {
             stackTab[firstEmptyIndex] = character;
@@ -17,10 +25,17 @@ public class Stack {
             System.out.println("Stack overflow");
         }
     }
-    
+
     public String peekLatestSign() {
         if (firstEmptyIndex != 0) {
             return stackTab[firstEmptyIndex - 1];
+        }
+        return "Stack is empty";
+    }
+
+    public String peekOnIndex(int i) {
+        if (firstEmptyIndex != 0) {
+            return stackTab[i];
         }
         return "Stack is empty";
     }
@@ -33,8 +48,35 @@ public class Stack {
         firstEmptyIndex--;
         return lastStackElement;
     }
-    
-    public boolean isEmpty(){
+
+    public String doMathAccordingToOperator(String element) {
+
+        int result;
+        String firstNumber = this.takeFromStack();
+        String secondNumber = this.takeFromStack();
+
+        if (element.equals("+")) {
+            result = Integer.parseInt(firstNumber) + Integer.parseInt(secondNumber);
+            return Integer.toString(result);
+        }
+        if (element.equals("-")) {
+            result = Integer.parseInt(firstNumber) - Integer.parseInt(secondNumber);
+            return Integer.toString(result);
+        }
+        if (element.equals("*")) {
+            result = Integer.parseInt(firstNumber) * Integer.parseInt(secondNumber);
+            return Integer.toString(result);
+
+        } else if (element.equals("/")) {
+            result = Integer.parseInt(firstNumber) / Integer.parseInt(secondNumber);
+            return Integer.toString(result);
+        }
+
+        return "Can't do math on those parameters";
+    }
+
+
+    public boolean isEmpty() {
         return firstEmptyIndex <= 0;
     }
 

@@ -1,7 +1,7 @@
 import java.util.StringTokenizer;
 
 
-public class MathOperationReader {
+public class MathOperationReader implements Math {
 
 
     private boolean isMoreImportant(String presentElement, Stack stack) {
@@ -9,12 +9,13 @@ public class MathOperationReader {
         return OperatorsEnum.getMathOperationPriority(stack.peekLatestSign()) <= OperatorsEnum.getMathOperationPriority(presentElement);
     }
 
-    private boolean isMathematicalOperator(String checkedElement) {
+    @Override
+    public boolean isMathematicalOperator(String checkedElement) {
 
         return checkedElement.equals(OperatorsEnum.PLUS.getOperator()) || checkedElement.equals(OperatorsEnum.MINUS.getOperator()) || checkedElement.equals(OperatorsEnum.MULTIPLICATION.getOperator()) || checkedElement.equals(OperatorsEnum.DIVISION.getOperator());
     }
 
-    public String reader(String mathematicalEquation_inNormalFormat) {
+    public String convertInfixToPostfix(String mathematicalEquation_inNormalFormat) {
 
         StringTokenizer cutMathematicalEquation = new StringTokenizer(mathematicalEquation_inNormalFormat, "+/()-*", true);
 
@@ -38,10 +39,11 @@ public class MathOperationReader {
                 stack.pushOnStack(element);
             } else if (element.equals(OperatorsEnum.CLOSING_BRACKET.getOperator())) {
 
-                while (!stack.peekLatestSign().equals("(")) {
-                    mathematicalEquation_inPostfixFormat.append(stack.peekLatestSign());
+                while (!stack.peekLatestSign().equals(OperatorsEnum.OPEN_BRACKET.getOperator())) {
+                    mathematicalEquation_inPostfixFormat.append(stack.takeFromStack());
                     mathematicalEquation_inPostfixFormat.append(" ");
                 }
+                stack.takeFromStack();
             } else {
                 mathematicalEquation_inPostfixFormat.append(element);
                 mathematicalEquation_inPostfixFormat.append(" ");
