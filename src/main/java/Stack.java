@@ -9,14 +9,6 @@ public class Stack {
         firstEmptyIndex = 0;
     }
 
-    public int getFirstEmptyIndex() {
-        return firstEmptyIndex;
-    }
-
-    public void setFirstEmptyIndex(int firstEmptyIndex) {
-        this.firstEmptyIndex = firstEmptyIndex;
-    }
-
     public void pushOnStack(String character) {
         if (firstEmptyIndex < stackTab.length) {
             stackTab[firstEmptyIndex] = character;
