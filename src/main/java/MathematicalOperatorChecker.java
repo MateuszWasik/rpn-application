@@ -1,4 +1,4 @@
-public interface Math {
+public interface MathematicalOperatorChecker {
 
     boolean isMathematicalOperator(String checkedElement);
 

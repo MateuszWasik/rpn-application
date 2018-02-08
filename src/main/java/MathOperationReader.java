@@ -1,7 +1,7 @@
 import java.util.StringTokenizer;
 
 
-public class MathOperationReader implements Math {
+public class MathOperationReader implements MathematicalOperatorChecker {
 
 
     private boolean isMoreImportant(String presentElement, Stack stack) {

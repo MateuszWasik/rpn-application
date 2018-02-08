@@ -1,6 +1,6 @@
 import java.util.StringTokenizer;
 
-public class RpnCalculator implements Math {
+public class RpnCalculator implements MathematicalOperatorChecker {
 
     public String postfixFormatCalculator(String postfixFormatEquation) {
 
