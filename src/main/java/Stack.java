@@ -52,7 +52,7 @@ public class Stack {
             return Integer.toString(result);
         }
         if (element.equals("-")) {
-            result = Integer.parseInt(firstNumber) - Integer.parseInt(secondNumber);
+            result = Integer.parseInt(secondNumber) - Integer.parseInt(firstNumber);
             return Integer.toString(result);
         }
         if (element.equals("*")) {
@@ -60,7 +60,7 @@ public class Stack {
             return Integer.toString(result);
 
         } else if (element.equals("/")) {
-            result = Integer.parseInt(firstNumber) / Integer.parseInt(secondNumber);
+            result = Integer.parseInt(secondNumber) / Integer.parseInt(firstNumber);
             return Integer.toString(result);
         }
 
