@@ -7,7 +7,7 @@ public class Main {
 
         RpnCalculator mathematicalEquation_inPosfixFormat = new RpnCalculator();
 
-        String mathematicalEquation = "100*(500-300)+(150+250)";
+        String mathematicalEquation = "34 3 3 2 + * 2 - - ";
 
         System.out.println(mathematicalEquation_inInfixFormat.convertInfixToPostfix(mathematicalEquation));
         System.out.println(mathematicalEquation_inPosfixFormat.postfixFormatCalculator(mathematicalEquation_inInfixFormat.convertInfixToPostfix(mathematicalEquation)));

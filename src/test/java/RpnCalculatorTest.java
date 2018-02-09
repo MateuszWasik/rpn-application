@@ -14,7 +14,7 @@ public class RpnCalculatorTest {
     @Test
     public void postfixFormatCalculator() {
 
-        assertEquals("-47", rpnCalculator.postfixFormatCalculator(infixFormatFirstParam));
+        assertEquals("21", rpnCalculator.postfixFormatCalculator(infixFormatFirstParam));
         assertEquals("40", rpnCalculator.postfixFormatCalculator(infixFormatSecondParam));
     }
 }
